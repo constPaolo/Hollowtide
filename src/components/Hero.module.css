@@ -1,0 +1,62 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 30rem;
+  overflow: hidden;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+}
+
+.tagline {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: -0.75em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.taglineRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(10rem, 22vw, 15rem);
+  margin: calc(clamp(10rem, 22vw, 15rem) * -0.43) 0 0 calc(clamp(10rem, 22vw, 15rem) * -0.5);
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(2.5rem, env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.foot p {
+  max-width: 20rem;
+  margin-inline: auto;
+}
+
+/* Phones: no room on either side of the logo for the tagline. */
+@media (max-width: 1000px) {
+  .tagline {
+    display: none;
+  }
+}

@@ -1,0 +1,34 @@
+.trail {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.still {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+}
+
+.slice {
+  position: absolute;
+  inset: 0;
+  background: var(--ink-2);
+  will-change: clip-path;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 600px) {
+  .still {
+    width: 140px;
+    height: 140px;
+  }
+}

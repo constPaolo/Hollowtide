@@ -1,0 +1,85 @@
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 2rem max(2rem, env(safe-area-inset-right)) 2rem max(2rem, env(safe-area-inset-left));
+  overflow: hidden;
+  background: var(--ink);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.cover p {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d8dbd9;
+}
+
+/* Text stays hidden until it has been split into lines and moved below its mask. */
+.cover:not([data-ready]) .copy,
+.cover:not([data-ready]) .count,
+.cover:not([data-ready]) .panel {
+  visibility: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--slate);
+  will-change: transform;
+}
+
+.copy,
+.col,
+.count {
+  flex: 1;
+  display: flex;
+}
+
+.col p {
+  width: 75%;
+}
+
+.count {
+  justify-content: flex-end;
+}
+
+.counter {
+  letter-spacing: 0.12em !important;
+  text-shadow: 0 0 18px rgba(170, 196, 200, 0.25);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1000px) {
+  .cover,
+  .copy {
+    flex-direction: column;
+  }
+  .panel {
+    width: 200%;
+  }
+  .col,
+  .count {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .col p {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover {
+    display: none;
+  }
+}

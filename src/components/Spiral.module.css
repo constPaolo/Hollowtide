@@ -1,0 +1,33 @@
+.section {
+  position: relative;
+  height: 150svh;
+  overflow: hidden;
+}
+
+/* The heading sits behind the helix, set wide and justified edge to edge. */
+.header {
+  position: relative;
+  z-index: 0;
+  padding-top: calc(5rem + env(safe-area-inset-top));
+  pointer-events: none;
+}
+
+.heading {
+  font-size: var(--display);
+  line-height: 0.92;
+  text-align: justify;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.canvas[data-ready] {
+  opacity: 1;
+}

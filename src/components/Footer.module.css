@@ -1,0 +1,71 @@
+.footer {
+  position: relative;
+  height: 100svh;
+  min-height: 32rem;
+  overflow: hidden;
+  /* Without WebGL: a faint haze where the smoke would be. */
+  background: radial-gradient(40% 45% at 50% 50%, rgba(185, 214, 196, 0.12), transparent 70%), var(--ink);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.canvas[data-ready] {
+  opacity: 1;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.headingWrap {
+  width: 100%;
+}
+
+.heading {
+  max-width: min(65%, 1500px);
+  margin-inline: auto;
+  font-size: var(--display-sm);
+  text-wrap: balance;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(2.25rem, env(safe-area-inset-bottom));
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bar a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1000px) {
+  .heading {
+    max-width: 90%;
+  }
+  .bar p:last-child {
+    text-align: right;
+  }
+}

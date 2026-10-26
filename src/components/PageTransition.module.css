@@ -1,0 +1,35 @@
+.grid {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  pointer-events: none;
+}
+
+/* While the blocks are moving, clicks shouldn't reach the page underneath. */
+.grid[data-busy] {
+  pointer-events: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.block {
+  flex: 1;
+  /* A hair of overlap so no seams show between blocks while they move. */
+  margin-right: -1px;
+  background: var(--slate);
+  transform: scaleY(0);
+  visibility: hidden;
+  will-change: transform;
+}
+
+.row:first-child .block {
+  transform-origin: top;
+}
+
+.row:last-child .block {
+  transform-origin: bottom;
+}

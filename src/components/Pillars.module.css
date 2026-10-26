@@ -1,0 +1,147 @@
+.section {
+  padding-block: 12rem;
+  background: var(--ink-2);
+}
+
+.head {
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.title {
+  max-width: 60rem;
+  font-size: var(--display-sm);
+  text-wrap: balance;
+}
+
+.panels {
+  display: flex;
+  gap: 0.5rem;
+  height: 60vh;
+  min-height: 500px;
+}
+
+.panel {
+  position: relative;
+  flex: 16 0 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  will-change: flex-grow;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(11, 11, 11, 0.15), rgba(11, 11, 11, 0.55));
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.descWrap {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: min(24rem, 90%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.desc {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Narrow screens: one under the other, picture on top, text below. */
+.stacked {
+  padding-block: 10rem 12rem;
+}
+
+.stacked .panels {
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
+  gap: 1.25rem;
+}
+
+.stacked .panel {
+  flex: none;
+  cursor: default;
+}
+
+.stacked .media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.stacked .label {
+  position: static;
+  transform: none;
+  align-items: flex-start;
+  padding: 2rem 1.75rem 0.75rem;
+  text-align: left;
+}
+
+.stacked .name {
+  white-space: normal;
+}
+
+.stacked .descWrap {
+  position: static;
+  transform: none;
+  width: auto;
+  padding: 0 1.75rem 2.25rem;
+  text-align: left;
+}

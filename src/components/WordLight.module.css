@@ -1,0 +1,51 @@
+.section {
+  position: relative;
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  /* Room at the top for the navigation bar. */
+  padding: 5.5rem var(--gutter) 2rem;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.text {
+  width: min(55%, 70rem);
+  text-align: center;
+  font-size: clamp(1.25rem, 0.6rem + 2vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text p + p {
+  margin-top: 2rem;
+}
+
+.word {
+  display: inline-block;
+  margin: 0 0.2rem 0.2rem 0;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.5rem;
+  will-change: opacity, background-color;
+}
+
+/* Hidden only when the script is there to bring the words in. */
+:global(.js) .word,
+:global(.js) .word span {
+  opacity: 0;
+}
+
+/* Reduced motion: just the text. */
+:global(.js) .section[data-still] .word,
+:global(.js) .section[data-still] .word span {
+  opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  .text {
+    width: 100%;
+  }
+  .word {
+    margin: 0 0.1rem 0.15rem 0;
+  }
+}

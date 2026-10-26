@@ -1,0 +1,72 @@
+.page {
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+  overflow: hidden;
+  background: var(--ink-2);
+}
+
+/* The text sits above the trail but lets the pointer through, except links. */
+.copy {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.copy a {
+  pointer-events: auto;
+}
+
+.main {
+  display: grid;
+  gap: 2rem;
+  width: min(75%, 60rem);
+  text-align: center;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.75rem, 1rem + 2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--fog-dim);
+}
+
+.lead {
+  color: var(--fog);
+}
+
+.main a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+
+.foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(2.25rem, env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  color: var(--fog-dim);
+}
+
+.foot p:last-child {
+  text-align: right;
+}
+
+.foot a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1000px) {
+  .main {
+    width: 90%;
+  }
+}

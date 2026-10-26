@@ -1,0 +1,144 @@
+:root {
+  --ink: #0b0d0c;
+  --ink-2: #121614;
+  --fog: #b9d6c4;
+  --fog-dim: #6f8a7b;
+  --paper: #e8ece7;
+  --paper-dim: rgba(232, 236, 231, 0.62);
+  --line: rgba(232, 236, 231, 0.14);
+  --slate: #49534e;
+
+  /* Fluid sizes: they grow with the viewport between a phone and a wide screen. */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --text-sm: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
+  --text: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --display-sm: clamp(2rem, 1.2rem + 3.5vw, 4rem);
+  --display: clamp(2.75rem, 1rem + 7vw, 8rem);
+  --display-xl: clamp(3.5rem, 0.5rem + 13vw, 14rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --nav-h: 4.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+::selection {
+  background: var(--fog);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 1px solid var(--fog);
+  outline-offset: 4px;
+}
+
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dim {
+  color: var(--paper-dim);
+}
+
+.wrap {
+  padding-inline: max(var(--gutter), env(safe-area-inset-left));
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+html[data-intro] {
+  overflow: hidden;
+}
+
+/* Animated text stays hidden until its script has prepared it (only when JS runs). */
+.js [data-reveal]:not([data-ready]),
+.js [data-flicker]:not([data-ready]) {
+  visibility: hidden;
+}
+
+.reveal-line {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}

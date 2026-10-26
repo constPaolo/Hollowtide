@@ -1,0 +1,127 @@
+.hero {
+  height: 80svh;
+  min-height: 24rem;
+  display: grid;
+  place-items: center;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.heroText {
+  width: min(85%, 70rem);
+}
+
+.title {
+  font-size: var(--display-xl);
+  line-height: 0.9;
+}
+
+.banner {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.banner img {
+  object-fit: cover;
+}
+
+.overview {
+  padding-block: clamp(5rem, 10vw, 8rem);
+  background: var(--ink-2);
+}
+
+.overviewHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(4rem, 10vw, 8rem);
+}
+
+.headline {
+  width: 50%;
+}
+
+.headline h2 {
+  font-size: var(--display-sm);
+}
+
+.overviewBody {
+  display: flex;
+  gap: 2rem;
+}
+
+.label {
+  flex: 2;
+}
+
+.story {
+  flex: 5;
+  display: grid;
+  gap: 4rem;
+}
+
+.story .serif {
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+.stills {
+  display: grid;
+  gap: 2rem;
+  width: min(75%, 90rem);
+  margin-inline: auto;
+  padding-bottom: 2rem;
+}
+
+.still {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.still img {
+  object-fit: cover;
+}
+
+.next {
+  display: grid;
+  place-items: center;
+  padding: 10rem var(--gutter) 14rem;
+  text-align: center;
+  background: var(--ink-2);
+}
+
+.nextLink {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+}
+
+.nextTitle {
+  font-size: var(--display);
+  transition: color 0.3s ease;
+}
+
+.nextLink:hover .nextTitle {
+  color: var(--fog);
+}
+
+@media (max-width: 1000px) {
+  .overviewHead {
+    flex-direction: column-reverse;
+  }
+  .headline {
+    width: 100%;
+  }
+  .overviewBody {
+    flex-direction: column;
+  }
+  .stills {
+    width: auto;
+    margin-inline: var(--gutter);
+  }
+}

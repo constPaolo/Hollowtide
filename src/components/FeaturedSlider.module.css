@@ -1,0 +1,92 @@
+.slider {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.img {
+  object-fit: cover;
+  transform: scale(1.25);
+  will-change: transform;
+}
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  transform: translateY(-50%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.125rem, 0.6rem + 2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.prefix,
+.link {
+  flex: 1;
+}
+
+.title {
+  flex: 2;
+  height: 1.12em;
+  overflow: hidden;
+}
+
+.titleText {
+  will-change: transform;
+}
+
+.link {
+  text-align: right;
+}
+
+/* Reduced motion: the same worlds as a plain list of full-width images. */
+.list {
+  display: grid;
+}
+
+.listItem {
+  position: relative;
+  height: 80svh;
+  overflow: hidden;
+}
+
+.listItem img {
+  object-fit: cover;
+}
+
+.listTitle {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 2rem;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+  font-weight: 500;
+}
+
+@media (max-width: 1000px) {
+  .prefix {
+    display: none;
+  }
+}
